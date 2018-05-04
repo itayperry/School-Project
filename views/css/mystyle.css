@@ -1,0 +1,199 @@
+@media only screen and (max-width: 1200px) {
+	main {
+		display: flex;
+		flex-wrap: wrap;
+		width: 100%;
+	}
+	#students_list {
+		width: calc(50% - 2rem) !important;	 	
+	}
+	#courses_list {
+		width: 50% !important;
+		margin-right: 0 !important;
+	}
+	#administrators_list {
+		margin-right: 0 !important;
+		width: 100% !important;
+	}
+	#container {
+		border: 2px solid rgba(122, 167, 122, 1);
+		box-sizing: border-box;
+		width: 100% !important;
+		border-radius: 3%;
+		padding: 0rem 2rem 2rem 2rem;
+		font-size: 2rem;
+	}
+}
+
+body {
+	font-family: 'Lora', serif;
+	font-size: 0.9rem;
+	font-weight: 600;
+	margin-right: 1.3rem;
+	margin-left: 1.3rem;
+}
+header {
+	display: flex;
+	border-bottom: 2px rgba(122, 167, 122, 1) solid;
+	/*margin-right: 0.7rem;
+	margin-left: 0.7rem;*/
+}
+a {
+    text-decoration: none;
+}
+a:link, a:visited {
+    color: black;
+}
+a:hover {
+    color: green;
+}
+.fix {
+	width:calc(100% - 5.5rem);
+}
+#main-info {
+	display: flex;
+	-ms-align-items: center;
+	align-items: center;
+	margin-top: 1rem;
+}
+#left-section {
+	display: flex;
+	align-items: center;
+	/*padding: 0.2rem;*/
+	/*padding-bottom: 0rem;*/
+	/*border: 1px red solid;*/
+	margin-bottom: 0rem;
+}
+#logo, #school-link, #administration-link {
+	/*margin: 0.5rem;*/
+	/*border: 1px red solid;*/
+	display: flex;
+	align-items: center;
+}
+
+#school-link, #administration-link, #line {
+	margin-left: 0.9rem;
+	/*border: 1px red solid;*/
+	display: flex;
+	align-items: center;
+}
+#right-section {
+	/*border: 2px green solid;*/
+	display: flex;
+	/*padding: 1rem;*/
+	align-items: center;
+	margin-left: auto;
+	margin-bottom: 0rem;
+}
+#user-data-login {
+	display: flex;
+	align-items: center;
+}
+#line {
+	border: 1px rgba(122, 167, 122, 1) solid;
+	height:1.3rem;
+}
+main {
+	display: flex;
+	margin-top: 1rem;
+	flex-wrap: wrap;
+}
+.headline {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	justify-content: space-between;
+	border-bottom: 0.15rem solid rgba(122, 167, 122, 1);
+	margin-bottom: 0.4rem;
+}
+#container {
+	border: 2px solid rgba(122, 167, 122, 1);
+	box-sizing: border-box;
+	width: calc(62% - 4rem);
+	border-radius: 3%;
+	padding: 0rem 2rem 2rem 2rem;
+}
+.home-title {
+	display: flex;
+	-ms-align-items: center;
+	align-items: center;
+	justify-content: center;
+	font-size: 1.5rem;
+}
+a {
+	text-decoration:none;
+}
+.list {
+	display: flex;
+	-webkit-flex-wrap: wrap;
+		-moz-flex-wrap: wrap;
+		-ms-flex-wrap: wrap;
+		-o-flex-wrap: wrap;
+		flex-wrap: wrap;
+		width: 100%;	
+}
+section {
+	width: 50%;
+}
+#info-box {
+	display: flex;
+	-ms-align-items: center;
+	align-items: center;
+	margin-bottom: 0.6rem;
+}
+#student-info {
+	margin-left: 1rem;
+}
+.add {
+	font-size: 2rem;
+}
+
+select {
+	padding: 0.5rem;
+}
+
+#students_list, #courses_list {
+	width: 19%;
+	margin-right: 2rem;
+	margin-bottom: 2rem;
+}
+
+#administrators_list {
+	width: 19%;
+	margin-right: 5rem;
+	margin-bottom: 2rem;
+}
+
+form label:not(:last-child) {display: block;}
+form label:not(:last-child) {margin-bottom: 1rem;}
+textarea, form label input:not([type=submit]), select {
+	padding: .5rem;
+	color: green;	
+	border: 1px solid currentColor;
+}
+form label input:not([type=submit])::-webkit-input-placeholder {
+	color: currentColor;
+	font-style: italic;
+}
+input[name="course_name"] {width: 40%;}
+
+input[type=submit], button {
+	padding: 0.6rem 1rem;
+	font-family: 'Lora', serif;
+	font-weight: 400;
+	border: 0.1rem solid black;
+	border-radius: 10%;
+	text-decoration: none;
+	font-size: 0.8rem;
+	background-color: #555555;
+	color: white;
+	cursor: pointer;
+}
+input[type=submit]:hover, button:hover {
+	background-color: #232020;
+}
+
+.form-buttons {
+	display: flex;
+	justify-content: space-between;
+}

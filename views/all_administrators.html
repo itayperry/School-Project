@@ -1,0 +1,25 @@
+<nav id="administrators_list">
+	<div class="headline">
+		<div>
+			<h2>Administrators</h2>
+		</div>
+		<div class="add">
+			<a href="/administrator/create-new"><span>+</span></a>
+		</div>
+	</div>
+	{% for administrator in administrators %}
+		<a href="/administrator/{{administrator.id}}" class="jquery-item-3">
+			<div id="info-box">
+				<div style="width:5.5rem; height:5.5rem;background-image: url(/views/{{administrator.image_link}});background-size: cover; border-radius: 50%; background-position: 50% 50%" >
+				</div>
+				<div class="fix">
+					<p style="margin-left: 1rem;">{{administrator.name}}, {{administrator.role}}</p>
+					<p style="margin-left: 1rem;">{{administrator.phone}}</p>
+					<p style="margin-left: 1rem;">{{administrator.email}}</p>
+				</div>
+
+			</div>
+		</a>
+	{% endfor %}	
+	<button class="show_button_admins" style="display: none;"></button>	
+</nav>

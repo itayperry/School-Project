@@ -1,0 +1,22 @@
+	<header>
+		<div id="left-section">
+			<div id="logo"><h1><img src="/views/images/school.png" alt="school logo" width=220></h1></div>
+			<div id="line"></div>
+			<div id="school-link"><a href="/home">School</a></div>
+			<div id="line"></div>
+			{% if admin.role_id != 3 %} <!--Sales doesn't have access to administrators' info -->
+				<div id="administration-link"><a href="/administrator-home">Administration</a></div>
+				<div id="line"></div>
+			{% endif %}
+		</div>
+		<div id="right-section">
+			<div id="user-data-login">
+				<div style="margin-right: 1rem;">
+					<h3>{{admin.name}}, {{admin.role}}</h3>
+					<a href="/logout"><p>Logout</p></a>
+				</div>
+				<div id="user-info" style="width:6rem; height:6rem;background-image: url(/views/{{admin.image_link}});background-size: cover; border-radius: 50%; background-position: 50% 50%"></div>
+				<!--<img src="/views/images/elrond.jpg" alt="" width=100>-->
+			</div>
+		</div>	
+	</header>

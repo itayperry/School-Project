@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>School</title>
+	<link rel="stylesheet" type="text/css" href="/views/css/mystyle.css">
+	<link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
+</head>
+<body>
+	{% include 'header.html' %}
+	<main id="all-info">
+		{% include 'all_administrators.html' %}
+
+		<div id="container">
+			<div>
+				<div class="headline">
+					<h3>You have requested the following administrator (id: {{specific_administrator.id}})</h3>
+					<!--<h3><a href="/administrator/edit/{{specific_administrator.id}}">Edit</a></h3>-->
+					{% if admin.role_id == 2 and specific_administrator.role_id != 1 or 
+						admin.role_id == 1%} 
+						<a href="/administrator/edit/{{specific_administrator.id}}"><button>Edit</button></a>
+
+					{% endif %}
+				</div>
+
+				<div id="main-info">
+					<div style="width:7rem; height:7rem;background-image: url(/views/{{specific_administrator.image_link}});background-size: cover; border-radius: 50%; background-position: 50% 50%" >
+					</div>
+					<div style="margin-left: 1rem;">
+						<h2>{{specific_administrator.name}}, {{specific_administrator.role}}</h2>
+						<h3>{{specific_administrator.phone}}</h3>
+						<h3>{{specific_administrator.email}}</h3>
+					</div>
+				</div>
+	</main>
+<script type="text/javascript" src="/views/js/jquery.min.js"></script>
+<script type="text/javascript" src="/views/js/administrators.js"></script>
+</body>
+</html>

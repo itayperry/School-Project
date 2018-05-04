@@ -1,0 +1,58 @@
+<nav id="students_list">
+	<div class="headline">
+		<div>
+			<h2>Students</h2>
+		</div>
+		<div class="add">
+			<a href="/student/create-new"><span>+</span></a>
+		</div>
+	</div>
+	{% for student in students %}
+		<a href="/student/{{student.id}}" class="jquery-item-1">
+			<div id="info-box">
+				<div style="width:5.5rem; height:5.5rem;background-image: url(/views/{{student.image_link}});background-size: cover; border-radius: 50%; background-position: 50% 50%" >
+					
+					<!--<img src= alt="" width=100>-->
+				</div>
+				<div class="fix">
+					<p style="margin-left: 1rem;">{{student.name}}</p>
+					<p style="margin-left: 1rem;">{{student.phone}}</p>
+				</div>
+
+			</div>
+		</a>
+	{% endfor %}
+	<button class="show_button_1" style="display: none;"></button>		
+</nav>
+	
+<nav id="courses_list">
+	<div class="headline">
+		<div>
+			<h2>Courses</h2>
+		</div>
+		<div class="add">
+			<a href="/course/create-new"><span>+</span></a>
+		</div>
+	</div>
+	<!--{% set courses_array = [] %} 
+		This is done so we could save the data on the courses in a seperate array beause foreach loop cannot run twice, and we need a second loop to create the checkboxes in the form when you edit/add a student-->
+
+	{% for course in courses %}
+	<!--{% set courses_array = courses_array | merge([course]) %}-->
+		<a href="/course/{{course.id}}" class="jquery-item-2">
+			<div id="info-box">
+				<div style="width:5.5rem; height:5.5rem;background-image: url(/views/{{course.image_link}});background-size: cover; border-radius: 50%; background-position: 50% 50%" >
+				</div>
+				<div class="fix">
+					<!--<img src="/views/{{course.image_link}}" alt="" width=100>-->
+	    			<p style="margin-left: 1rem;">{{course.name}}</p>
+	    		</div>
+	    	</div>
+	    </a>
+	{% endfor %}
+	<button class="show_button_2" style="display: none;"></button>
+	<!--{% for co in courses_array %}
+			<p>{{co.name}}</p>
+			<p>{{co.id}}</p>
+		{% endfor %}-->
+</nav>

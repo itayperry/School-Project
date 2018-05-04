@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>School</title>
+	<link rel="stylesheet" type="text/css" href="/views/css/mystyle.css">
+	<link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
+	<link class="jsbin" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
+	<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+	<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
+</head>
+<body>
+	{% include 'header.html' %}
+	<main id="all-info">
+		{% include 'all_courses_students.html' %}
+	<div id="container">
+		<div class="headline">
+			<h2>You are now editing the student "{{specific_student.name}}" (id: {{specific_student.id}})</h2>
+		</div>
+		<div class="form-buttons">
+			<form enctype="multipart/form-data" action="/student/edited/{{specific_student.id}}" method="POST" ><!--/ -->
+
+				<input type="submit" value="Save Changes">
+
+
+				<div style="width:8rem; height:8rem;background-image: url(/views/{{specific_student.image_link}});background-size: cover; border-radius: 50%; margin-top:1rem;  background-position: 50% 50%" >
+				</div>
+				<label>
+					<p>Name:</p>
+					<input type="name" value="{{specific_student.name}}" name="name" required/>
+				</label>
+				<label>
+					<p>Phone:</p>
+					<input type="tel" value="{{specific_student.phone}}" name="phone" required/>
+				</label>			
+				<label>
+					<p>Email:</p>
+					<input type="mail" value="{{specific_student.email}}" name="email" required/>
+				</label>
+
+				<label>
+					<p>Courses:</p>
+					{% for co in checkbox_info %}
+					{% set found = false %}
+						{% for course_signed_to in signed_to if not break %}
+							{% if co.id == course_signed_to.id %}
+								<div>	
+						    		<input type="checkbox" id="new_courses_id" name="new_courses_chosen[]" value="{{co.id}}" checked="">
+						  	  		<label for="courses_chosen">{{co.name}}</label>
+						  		</div>
+						  		{% set found = true %}
+						  	{% endif %}
+						{% endfor %}
+						{% if found == false %}
+						  		<div>	
+						    		<input type="checkbox" id="new_courses_id" name="new_courses_chosen[]" value="{{co.id}}">
+						  	  		<label for="courses_chosen">{{co.name}}</label>
+						  		</div>
+						{% endif %}	
+						
+					{% endfor %}
+				</label>
+				<label for="userfile">Choose a file to upload (if you wish to change the image):</label>
+			    <!-- MAX_FILE_SIZE must precede the file input field -->
+			    <input type="hidden" name="MAX_FILE_SIZE" value="850000" />
+			    <!-- Name of input element determines name in $_FILES array -->
+			    Send this file: <input name="userfile" type="file" onchange="readURL(this);" />
+			    <img id="blah" src="#" alt="your image will appear here" />
+			</form>
+			<form action="/student/delete/{{specific_student.id}}" method="post">
+				<button type="submit" onclick="return confirm('Are you sure you want to delete this student?');">Delete student</button>
+			</form>
+		</div>
+	</div>
+	</main>
+<script>
+ function readURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('#blah')
+                .attr('src', e.target.result)
+				
+                .width(100);
+        };
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+</script>
+<script type="text/javascript" src="/views/js/jquery.min.js"></script>
+<script type="text/javascript" src="/views/js/students_courses.js"></script>
+</body>
