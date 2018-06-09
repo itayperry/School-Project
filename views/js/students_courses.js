@@ -19,7 +19,6 @@ $(window).on('resize', function(){
         width = $(this).width();
         console.log(width);
 		if (width < 1200) { 
-			$('h1').text("success");
 			$('.jquery-item-1:gt(2)').hide();
 			$('.jquery-item-2:gt(2)').hide();
 			$('.show_button_1').text("Show more");
